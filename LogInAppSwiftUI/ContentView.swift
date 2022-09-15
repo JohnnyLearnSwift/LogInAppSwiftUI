@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var name = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Group {
+            if name.count < 3 {
+                AllComponents(name: $name, color: .red, isDisabled: true)
+            } else {
+                AllComponents(name: $name, color: .green, isDisabled: false)
+            }
+        }
     }
 }
 
